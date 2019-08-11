@@ -74,10 +74,10 @@ class Repository::GitMirror < Repository::Git
       return
     end
 
-    if parsed_url.has_credential?
-      errors.add :url, 'cannot use credentials'
-      return
-    end
+    # if parsed_url.has_credential?
+    #   errors.add :url, 'cannot use credentials'
+    #   return
+    # end
 
     self.url = parsed_url.normalize
 
