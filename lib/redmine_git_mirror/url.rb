@@ -48,7 +48,7 @@ module RedmineGitMirror
     private def parse_scp_like_url(host, path)
       return if !path || path.include?(':') || path[0] == '/'
 
-      if host.include? ('@')
+      if host.include? '@'
         user, host = host.split('@', 2)
 
         return if user.length <= 0
@@ -84,9 +84,9 @@ module RedmineGitMirror
     end
 
     def has_credential?
-      return false if scp_like?
+      return false if uses_ssh? && password.nil?
 
-      !password.to_s.empty? || !user.to_s.empty?
+      !password.nil? || !user.nil?
     end
 
     def normalize
