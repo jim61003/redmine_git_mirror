@@ -104,10 +104,25 @@ class GitMirrorController < ActionController::Base
     end
 
     found = false
-    Repository::GitMirror.active.where(url: urls_to_search).find_each do |repository|
-      found = true unless found
-      repository.fetch()
-    end
+
+    atp_log "JDH: URLs to search gitea: #{urls_to_search}"
+
+    # iterate over all urls 
+    Repository::GitMirror.active.each do |repository|
+      begin
+        atp_log "SK: URL to look for gitea: #{repository.url}"
+        atp_log "SK: Base URL to look for gitea: #{repository.url.base_url}"
+        if urls_to_search.include? repository.url.base_url
+          atp_log "SK: URL found: #{repository.url.base_url}"
+          found = true
+          repository.fetch()
+        end
+      end
+
+    #Repository::GitMirror.active.where(url: urls_to_search).find_each do |repository|
+     # found = true unless found
+     # repository.fetch()
+    # end
 
     found
   end
