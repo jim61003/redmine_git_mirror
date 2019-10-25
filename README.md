@@ -1,6 +1,14 @@
 redmine_git_mirror不支援 url auth 的原因，是因為安全性問題，這裡我不需要擔心這個，所以直接修改原始碼，把這個限制拿掉。
 > 有找到一個分支 sharpSteff/redmine_git_mirror 就是把 urls auth 限制拿掉，可是偏偏它又有bug，我就在分支出來，修了這一個 bug
 
+Webhook: http://192.168.100.70:8083/sys/git_mirror/fetch?url=URLEncode{URL}
+
+EX:
+> Identifier: mars-host-setup  
+> URL: http://gitlab+deploy-token-5:pUvtimjxkhXyB165Ny31@gitlab.uj.com.tw/doc-msdk/mars/mars-host-setup.git
+>
+> Webhook: http://192.168.100.70:8083/sys/git_mirror/fetch?url=http%3A%2F%2Fgitlab%2Bdeploy-token-5%3ApUvtimjxkhXyB165Ny31%40gitlab.uj.com.tw%2Fdoc-msdk%2Fmars%2Fmars-host-setup.git
+
 ==================
 
 Redmine Git Mirror plugin 
