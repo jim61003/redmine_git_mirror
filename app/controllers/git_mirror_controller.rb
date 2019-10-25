@@ -109,7 +109,6 @@ class GitMirrorController < ActionController::Base
 
    # iterate over all urls 
     Repository::GitMirror.active.each do |repository|
-      begin
         #atp_log "SK: URL to look for gitea: #{repository.url}"
         #atp_log "SK: Base URL to look for gitea: #{repository.url.base_url}"
         if urls_to_search.include? repository.url.base_url
