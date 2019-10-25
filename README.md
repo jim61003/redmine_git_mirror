@@ -1,9 +1,10 @@
-Redmine Git Mirror plugin 
-==================
-
 redmine_git_mirror不支援 url auth 的原因，是因為安全性問題，這裡我不需要擔心這個，所以直接修改原始碼，把這個限制拿掉。
 > 有找到一個分支 sharpSteff/redmine_git_mirror 就是把 urls auth 限制拿掉，可是偏偏它又有bug，我就在分支出來，修了這一個 bug
 
+==================
+
+Redmine Git Mirror plugin 
+==================
 
 Adds ability to clone and fetch remote git repositories to redmine.
 
